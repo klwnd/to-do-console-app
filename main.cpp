@@ -1,13 +1,13 @@
-#include "Tasks.h"
-#include "ConsoleMenu.h"
-#include "FileManager.h"
+#include "include/tasks.h"
+#include "include/consoleMenu.h"
+#include "include/fileManager.h"
 
 int main()
 {
-    FileManager fm("data.txt");
+    fileManager fm("data.txt");
     Tasks* taskObject = fm.LoadFromFile();
 
-    ConsoleMenu menu(taskObject);
+    consoleMenu menu(taskObject);
     menu.RunMenu();
 
     fm.SaveToFile(taskObject);

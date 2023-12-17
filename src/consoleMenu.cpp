@@ -1,11 +1,11 @@
-#include "ConsoleMenu.h"
+#include "../include/consoleMenu.h"
 
-ConsoleMenu::ConsoleMenu(Tasks* instance)
+consoleMenu::consoleMenu(Tasks* instance)
 {
     this->Instance = instance;
 }
 
-void ConsoleMenu::RunMenu()
+void consoleMenu::RunMenu()
 {
     std::cout << "--------- ToDo App v.0.1 --------" << std::endl;
     char input = '-';
@@ -46,7 +46,7 @@ void ConsoleMenu::RunMenu()
     std::cout << "Bye..." << std::endl;
 }
 
-void ConsoleMenu::DisplayOptions()
+void consoleMenu::DisplayOptions()
 {
     std::cout << "[1] Show all tasks" << std::endl;
     std::cout << "[2] Add new task" << std::endl;
@@ -56,7 +56,7 @@ void ConsoleMenu::DisplayOptions()
     std::cout << "-> Option: ";
 }
 
-void ConsoleMenu::DisplayFeatureTitle(std::string title)
+void consoleMenu::DisplayFeatureTitle(std::string title)
 {
     std::cout << std::endl;
     int maxTitleSize = 32;
@@ -69,12 +69,12 @@ void ConsoleMenu::DisplayFeatureTitle(std::string title)
     std::cout << separator + title << separator << std::endl;
 }
 
-void ConsoleMenu::DisplayFeatureEnd()
+void consoleMenu::DisplayFeatureEnd()
 {
     std::cout << std::string(32, '-') << std::endl;
 }
 
-void ConsoleMenu::PressAnyKey()
+void consoleMenu::PressAnyKey()
 {
     std::cout << "Press any key to return..." << std::endl;
     std::cin.get();

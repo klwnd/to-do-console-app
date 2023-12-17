@@ -4,11 +4,11 @@ project(ToDoApp)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(ToDoApp main.cpp
-        Task.cpp
-        Task.h
-        Tasks.cpp
-        Tasks.h
-        ConsoleMenu.cpp
-        ConsoleMenu.h
-        FileManager.cpp
-        FileManager.h)
+        src/task.cpp
+        include/task.h
+        src/tasks.cpp
+        include/tasks.h
+        src/consoleMenu.cpp
+        include/consoleMenu.h
+        src/fileManager.cpp
+        include/fileManager.h)

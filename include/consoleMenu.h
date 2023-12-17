@@ -1,16 +1,16 @@
 #include <iostream>
-#include "Tasks.h"
+#include "tasks.h"
 
 #ifndef TODOAPP_CONSOLEMENU_H
 #define TODOAPP_CONSOLEMENU_H
 
 
-class ConsoleMenu
+class consoleMenu
 {
 private:
     Tasks* Instance;
 public:
-    ConsoleMenu(Tasks* instance);
+    consoleMenu(Tasks* instance);
     void RunMenu();
     void DisplayOptions();
     void DisplayFeatureTitle(std::string title);

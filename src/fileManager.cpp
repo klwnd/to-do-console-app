@@ -1,14 +1,14 @@
 #include <fstream>
 #include <sstream>
-#include "FileManager.h"
+#include "../include/fileManager.h"
 
-FileManager::FileManager(std::string fp)
+fileManager::fileManager(std::string fp)
 {
     this->FilePath = fp;
     IsConsoleLogOn = true;
 }
 
-void FileManager::SaveToFile(Tasks* object)
+void fileManager::SaveToFile(Tasks* object)
 {
     std::ofstream file;
     file.open(FilePath, std::ios::trunc);
@@ -28,7 +28,7 @@ void FileManager::SaveToFile(Tasks* object)
     file.close();
 }
 
-Tasks* FileManager::LoadFromFile()
+Tasks* fileManager::LoadFromFile()
 {
     Tasks* tasksObject = new Tasks;
     std::vector<Task*> tasksList;
@@ -73,7 +73,7 @@ Tasks* FileManager::LoadFromFile()
     return tasksObject;
 }
 
-void FileManager::DisplayInfoLog(std::string msg, bool check)
+void fileManager::DisplayInfoLog(std::string msg, bool check)
 {
     if (IsConsoleLogOn)
     {
