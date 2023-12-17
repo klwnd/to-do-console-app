@@ -11,4 +11,6 @@ add_executable(ToDoApp main.cpp
         src/consoleMenu.cpp
         include/consoleMenu.h
         src/fileManager.cpp
-        include/fileManager.h)
+        include/fileManager.h
+        src/utils.cpp
+        include/utils.h)

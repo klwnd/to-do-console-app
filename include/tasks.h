@@ -5,7 +5,6 @@
 #ifndef TODOAPP_TASKS_H
 #define TODOAPP_TASKS_H
 
-
 class Tasks
 {
 private:

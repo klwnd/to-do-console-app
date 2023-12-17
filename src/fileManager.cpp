@@ -1,11 +1,11 @@
 #include <fstream>
 #include <sstream>
 #include "../include/fileManager.h"
+#include "../include/utils.h"
 
 FileManager::FileManager(std::string fp)
 {
     this->filePath = fp;
-    isConsoleLogOn = true;
 }
 
 void FileManager::saveToFile(Tasks* object)
@@ -15,14 +15,14 @@ void FileManager::saveToFile(Tasks* object)
 
     if (file.is_open())
     {
-        displayInfoLog("Load file to the memory", true);
+        Utils::displayInfoLog("Load file to the memory", true);
         std::vector<Task*> tasksList = object->getTasksList();
 
         for (Task* element : tasksList)
         {
             file << element->getTitle() << "," << element->getIsComplete() << std::endl;
         }
-        displayInfoLog("Save data to the file", true);
+        Utils::displayInfoLog("Save data to the file", true);
     }
 
     file.close();
@@ -37,7 +37,7 @@ Tasks* FileManager::loadFromFile()
     file.open(filePath, std::ios::in);
     if (file.is_open() && file.peek() != EOF)
     {
-        displayInfoLog("Load file to the memory", true);
+        Utils::displayInfoLog("Load file to the memory", true);
 
         std::string line;
 
@@ -58,29 +58,17 @@ Tasks* FileManager::loadFromFile()
 
         }
 
-        displayInfoLog("Add new Task to tasksList (vector)", true);
+        Utils::displayInfoLog("Add new Task to tasksList (vector)", true);
         tasksObject->setTasksList(tasksList);
-        displayInfoLog("Add tasksList to tasksObject", true);
+        Utils::displayInfoLog("Add tasksList to tasksObject", true);
     }
     else
     {
-        displayInfoLog("File load error (file is empty or not exist)", false);
+        Utils::displayInfoLog("File load error (file is empty or not exist)", false);
     }
 
     file.close();
-    displayInfoLog("File closed", true);
+    Utils::displayInfoLog("File closed", true);
 
     return tasksObject;
-}
-
-void FileManager::displayInfoLog(std::string msg, bool check)
-{
-    if (isConsoleLogOn)
-    {
-        std::string info;
-        if (check) info = "Done";
-        else info = "Error";
-
-        std::cout << "  -> [" << info << "] - " << msg << std::endl;
-    }
 }

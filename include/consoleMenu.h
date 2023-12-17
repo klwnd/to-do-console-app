@@ -4,7 +4,6 @@
 #ifndef TODOAPP_CONSOLEMENU_H
 #define TODOAPP_CONSOLEMENU_H
 
-
 class ConsoleMenu
 {
 private:

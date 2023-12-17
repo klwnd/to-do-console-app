@@ -20,28 +20,25 @@ void ConsoleMenu::runMenu()
             case '1':
                 displayFeatureTitle("Show All Tasks");
                 instance->showAllTasks();
-                displayFeatureEnd();
                 break;
             case '2':
                 displayFeatureTitle("Add New Task");
                 instance->addTask();
-                displayFeatureEnd();
                 break;
             case '3':
                 displayFeatureTitle("Complete Task");
                 instance->changeCompleteStatus();
-                displayFeatureEnd();
                 break;
             case'4':
                 displayFeatureTitle("Remove task");
                 instance->deleteTask();
-                displayFeatureEnd();
                 break;
             case '0':
                 break;
             default:
                 std::cout << "-> function is not available" << std::endl;
         }
+        displayFeatureEnd();
     }
     std::cout << "Bye..." << std::endl;
 }
