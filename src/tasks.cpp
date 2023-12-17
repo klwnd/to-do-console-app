@@ -4,7 +4,7 @@ Tasks::Tasks()
 {
 }
 
-void Tasks::AddTask()
+void Tasks::addTask()
 {
     while(true)
     {
@@ -16,14 +16,14 @@ void Tasks::AddTask()
         if (title == "0" || title.empty()) break;
 
         Task* newTask = new Task(title);
-        TasksList.push_back(newTask);
+        tasksList.push_back(newTask);
     }
 }
 
-void Tasks::ShowTask(Task* object)
+void Tasks::showTask(Task* object)
 {
     std::string completed;
-    if (object->GetIsComplete())
+    if (object->getIsComplete())
     {
         completed = "Complete!";
     }
@@ -32,17 +32,17 @@ void Tasks::ShowTask(Task* object)
         completed = "ToDo     ";
     }
 
-    std::cout << completed << " | " << object->GetTitle() << std::endl;
+    std::cout << completed << " | " << object->getTitle() << std::endl;
 }
 
-void Tasks::ShowAllTasks()
+void Tasks::showAllTasks()
 {
-    int count = TasksList.size();
+    int count = tasksList.size();
 
     for (int i = 0; i < count; i++)
     {
         std::cout << i+1 << ". ";
-        ShowTask(TasksList[i]);
+        showTask(tasksList[i]);
     }
 
     if (count != 0)
@@ -55,9 +55,9 @@ void Tasks::ShowAllTasks()
     }
 }
 
-void Tasks::ChangeCompleteStatus()
+void Tasks::changeCompleteStatus()
 {
-    ShowAllTasks();
+    showAllTasks();
     int input = -1;
     std::cout << "Which task (number, 0 to exit): ";
     std::cout << std::endl;
@@ -66,10 +66,10 @@ void Tasks::ChangeCompleteStatus()
     {
         input -= 1;
         std::cin.ignore();
-        if (input >= 0 && input < TasksList.size())
+        if (input >= 0 && input < tasksList.size())
         {
-            TasksList[input]->SetIsComplete();
-            std::cout << "-> Task: " << input+1 << ". " << TasksList[input]->GetTitle() << " - status changed" << std::endl;
+            tasksList[input]->setIsComplete();
+            std::cout << "-> Task: " << input+1 << ". " << tasksList[input]->getTitle() << " - status changed" << std::endl;
         }
         else
         {
@@ -78,19 +78,19 @@ void Tasks::ChangeCompleteStatus()
     }
 }
 
-std::vector<Task*> Tasks::GetTasksList()
+std::vector<Task*> Tasks::getTasksList()
 {
-    return TasksList;
+    return tasksList;
 }
 
-void Tasks::SetTasksList(std::vector<Task *> tasksList)
+void Tasks::setTasksList(std::vector<Task *> tasksList)
 {
-    this->TasksList = tasksList;
+    this->tasksList = tasksList;
 }
 
-void Tasks::DeleteTask()
+void Tasks::deleteTask()
 {
-    ShowAllTasks();
+    showAllTasks();
     int input = -1;
     std::cout << "Which task remove (number, 0 to exit): ";
     std::cout << std::endl;
@@ -99,10 +99,10 @@ void Tasks::DeleteTask()
     {
         input -= 1;
         std::cin.ignore();
-        if (input >= 0 && input < TasksList.size())
+        if (input >= 0 && input < tasksList.size())
         {
-            auto taskToRemove = TasksList.begin() + input;
-            TasksList.erase(taskToRemove);
+            auto taskToRemove = tasksList.begin() + input;
+            tasksList.erase(taskToRemove);
             std::cout << "-> Task: " << input+1 << " - is remove" << std::endl;
         }
         else

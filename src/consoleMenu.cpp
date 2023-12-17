@@ -1,41 +1,41 @@
 #include "../include/consoleMenu.h"
 
-consoleMenu::consoleMenu(Tasks* instance)
+ConsoleMenu::ConsoleMenu(Tasks* instance)
 {
-    this->Instance = instance;
+    this->instance = instance;
 }
 
-void consoleMenu::RunMenu()
+void ConsoleMenu::runMenu()
 {
     std::cout << "--------- ToDo App v.0.1 --------" << std::endl;
     char input = '-';
     while(input != '0')
     {
-        DisplayOptions();
+        displayOptions();
         input = '-';
         std::cin >> input;
         std::cin.ignore();
         switch (input)
         {
             case '1':
-                DisplayFeatureTitle("Show All Tasks");
-                Instance->ShowAllTasks();
-                DisplayFeatureEnd();
+                displayFeatureTitle("Show All Tasks");
+                instance->showAllTasks();
+                displayFeatureEnd();
                 break;
             case '2':
-                DisplayFeatureTitle("Add New Task");
-                Instance->AddTask();
-                DisplayFeatureEnd();
+                displayFeatureTitle("Add New Task");
+                instance->addTask();
+                displayFeatureEnd();
                 break;
             case '3':
-                DisplayFeatureTitle("Complete Task");
-                Instance->ChangeCompleteStatus();
-                DisplayFeatureEnd();
+                displayFeatureTitle("Complete Task");
+                instance->changeCompleteStatus();
+                displayFeatureEnd();
                 break;
             case'4':
-                DisplayFeatureTitle("Remove task");
-                Instance->DeleteTask();
-                DisplayFeatureEnd();
+                displayFeatureTitle("Remove task");
+                instance->deleteTask();
+                displayFeatureEnd();
                 break;
             case '0':
                 break;
@@ -46,7 +46,7 @@ void consoleMenu::RunMenu()
     std::cout << "Bye..." << std::endl;
 }
 
-void consoleMenu::DisplayOptions()
+void ConsoleMenu::displayOptions()
 {
     std::cout << "[1] Show all tasks" << std::endl;
     std::cout << "[2] Add new task" << std::endl;
@@ -56,7 +56,7 @@ void consoleMenu::DisplayOptions()
     std::cout << "-> Option: ";
 }
 
-void consoleMenu::DisplayFeatureTitle(std::string title)
+void ConsoleMenu::displayFeatureTitle(std::string title)
 {
     std::cout << std::endl;
     int maxTitleSize = 32;
@@ -69,12 +69,12 @@ void consoleMenu::DisplayFeatureTitle(std::string title)
     std::cout << separator + title << separator << std::endl;
 }
 
-void consoleMenu::DisplayFeatureEnd()
+void ConsoleMenu::displayFeatureEnd()
 {
     std::cout << std::string(32, '-') << std::endl;
 }
 
-void consoleMenu::PressAnyKey()
+void ConsoleMenu::pressAnyKey()
 {
     std::cout << "Press any key to return..." << std::endl;
     std::cin.get();

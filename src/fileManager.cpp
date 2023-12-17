@@ -2,42 +2,42 @@
 #include <sstream>
 #include "../include/fileManager.h"
 
-fileManager::fileManager(std::string fp)
+FileManager::FileManager(std::string fp)
 {
-    this->FilePath = fp;
-    IsConsoleLogOn = true;
+    this->filePath = fp;
+    isConsoleLogOn = true;
 }
 
-void fileManager::SaveToFile(Tasks* object)
+void FileManager::saveToFile(Tasks* object)
 {
     std::ofstream file;
-    file.open(FilePath, std::ios::trunc);
+    file.open(filePath, std::ios::trunc);
 
     if (file.is_open())
     {
-        DisplayInfoLog("Load file to the memory", true);
-        std::vector<Task*> tasksList = object->GetTasksList();
+        displayInfoLog("Load file to the memory", true);
+        std::vector<Task*> tasksList = object->getTasksList();
 
         for (Task* element : tasksList)
         {
-            file << element->GetTitle() << "," << element->GetIsComplete() << std::endl;
+            file << element->getTitle() << "," << element->getIsComplete() << std::endl;
         }
-        DisplayInfoLog("Save data to the file", true);
+        displayInfoLog("Save data to the file", true);
     }
 
     file.close();
 }
 
-Tasks* fileManager::LoadFromFile()
+Tasks* FileManager::loadFromFile()
 {
     Tasks* tasksObject = new Tasks;
     std::vector<Task*> tasksList;
 
     std::fstream file;
-    file.open(FilePath, std::ios::in);
+    file.open(filePath, std::ios::in);
     if (file.is_open() && file.peek() != EOF)
     {
-        DisplayInfoLog("Load file to the memory", true);
+        displayInfoLog("Load file to the memory", true);
 
         std::string line;
 
@@ -58,24 +58,24 @@ Tasks* fileManager::LoadFromFile()
 
         }
 
-        DisplayInfoLog("Add new Task to tasksList (vector)", true);
-        tasksObject->SetTasksList(tasksList);
-        DisplayInfoLog("Add tasksList to tasksObject", true);
+        displayInfoLog("Add new Task to tasksList (vector)", true);
+        tasksObject->setTasksList(tasksList);
+        displayInfoLog("Add tasksList to tasksObject", true);
     }
     else
     {
-        DisplayInfoLog("File load error (file is empty or not exist)", false);
+        displayInfoLog("File load error (file is empty or not exist)", false);
     }
 
     file.close();
-    DisplayInfoLog("File closed", true);
+    displayInfoLog("File closed", true);
 
     return tasksObject;
 }
 
-void fileManager::DisplayInfoLog(std::string msg, bool check)
+void FileManager::displayInfoLog(std::string msg, bool check)
 {
-    if (IsConsoleLogOn)
+    if (isConsoleLogOn)
     {
         std::string info;
         if (check) info = "Done";

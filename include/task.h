@@ -5,14 +5,14 @@
 class Task
 {
 private:
-    std::string Title;
-    bool IsComplete;
+    std::string title;
+    bool isComplete;
 public:
     Task(std::string title);
     Task(std::string title, bool complete);
-    std::string GetTitle();
-    bool GetIsComplete();
-    void SetIsComplete();
+    std::string getTitle();
+    bool getIsComplete();
+    void setIsComplete();
 };
 
 

@@ -9,16 +9,16 @@
 class Tasks
 {
 private:
-    std::vector<Task*> TasksList;
+    std::vector<Task*> tasksList;
 public:
     Tasks();
-    void AddTask();
-    void ShowTask(Task* object);
-    void ShowAllTasks();
-    void ChangeCompleteStatus();
-    std::vector<Task*> GetTasksList();
-    void SetTasksList(std::vector<Task*> tasksList);
-    void DeleteTask();
+    void addTask();
+    void showTask(Task* object);
+    void showAllTasks();
+    void changeCompleteStatus();
+    std::vector<Task*> getTasksList();
+    void setTasksList(std::vector<Task*> tasksList);
+    void deleteTask();
 };
 
 

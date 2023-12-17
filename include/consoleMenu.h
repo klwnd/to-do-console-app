@@ -5,17 +5,17 @@
 #define TODOAPP_CONSOLEMENU_H
 
 
-class consoleMenu
+class ConsoleMenu
 {
 private:
-    Tasks* Instance;
+    Tasks* instance;
 public:
-    consoleMenu(Tasks* instance);
-    void RunMenu();
-    void DisplayOptions();
-    void DisplayFeatureTitle(std::string title);
-    void DisplayFeatureEnd();
-    void PressAnyKey();
+    ConsoleMenu(Tasks* instance);
+    void runMenu();
+    void displayOptions();
+    void displayFeatureTitle(std::string title);
+    void displayFeatureEnd();
+    void pressAnyKey();
 };
 
 

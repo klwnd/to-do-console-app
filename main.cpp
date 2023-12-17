@@ -4,13 +4,13 @@
 
 int main()
 {
-    fileManager fm("data.txt");
-    Tasks* taskObject = fm.LoadFromFile();
+    FileManager fm("data.txt");
+    Tasks* taskObject = fm.loadFromFile();
 
-    consoleMenu menu(taskObject);
-    menu.RunMenu();
+    ConsoleMenu menu(taskObject);
+    menu.runMenu();
 
-    fm.SaveToFile(taskObject);
+    fm.saveToFile(taskObject);
 
     return 0;
 }

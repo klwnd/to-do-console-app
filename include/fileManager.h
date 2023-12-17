@@ -4,16 +4,16 @@
 #define TODOAPP_FILEMANAGER_H
 
 
-class fileManager
+class FileManager
 {
 private:
-    std::string FilePath;
-    bool IsConsoleLogOn;
+    std::string filePath;
+    bool isConsoleLogOn;
 public:
-    fileManager(std::string fp);
-    void SaveToFile(Tasks* object);
-    Tasks* LoadFromFile();
-    void DisplayInfoLog(std::string msg, bool check);
+    FileManager(std::string fp);
+    void saveToFile(Tasks* object);
+    Tasks* loadFromFile();
+    void displayInfoLog(std::string msg, bool check);
 
 };
 

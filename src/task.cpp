@@ -1,32 +1,32 @@
 #include "../include/task.h"
 
-Task::Task(std::string title) : Title(title)
+Task::Task(std::string title) : title(title)
 {
-    IsComplete = false;
+    isComplete = false;
 }
 
-Task::Task(std::string title, bool complete) : Title(title), IsComplete(complete) {}
+Task::Task(std::string title, bool complete) : title(title), isComplete(complete) {}
 
-void Task::SetIsComplete()
+void Task::setIsComplete()
 {
-    if (IsComplete)
+    if (isComplete)
     {
-        IsComplete = false;
+        isComplete = false;
     }
     else
     {
-        IsComplete = true;
+        isComplete = true;
     }
 }
 
-std::string Task::GetTitle()
+std::string Task::getTitle()
 {
-    return Title;
+    return title;
 }
 
-bool Task::GetIsComplete()
+bool Task::getIsComplete()
 {
-    return IsComplete;
+    return isComplete;
 }
 
 
