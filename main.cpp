@@ -12,5 +12,7 @@ int main()
 
     fm.saveToFile(taskObject);
 
+    delete taskObject;
+
     return 0;
 }
