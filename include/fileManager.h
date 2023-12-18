@@ -12,7 +12,6 @@ public:
     FileManager(std::string fp);
     void saveToFile(Tasks* object);
     Tasks* loadFromFile();
-
 };
 
 

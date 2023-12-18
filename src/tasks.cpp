@@ -1,4 +1,5 @@
 #include "../include/tasks.h"
+#include "../include/utils.h"
 
 Tasks::Tasks()
 {
@@ -9,11 +10,11 @@ void Tasks::addTask()
     while(true)
     {
         std::string title;
-        std::cout << "-> Add new task (0 to exit): ";
+        std::cout << "-> Add new task (EMPTY to exit): ";
         std::cout << std::endl;
         std::getline(std::cin, title);
 
-        if (title == "0" || title.empty()) break;
+        if (title.empty()) break;
 
         Task* newTask = new Task(title);
         tasksList.push_back(newTask);
@@ -59,17 +60,14 @@ void Tasks::changeCompleteStatus()
 {
     showAllTasks();
     int input = -1;
-    std::cout << "Which task (number, 0 to exit): ";
-    std::cout << std::endl;
-    std::cin >> input;
+    input = Utils::getIntInputFromUser("Which task (number, 0 to exit): ");
     if (input != 0)
     {
         input -= 1;
-        std::cin.ignore();
         if (input >= 0 && input < tasksList.size())
         {
             tasksList[input]->setIsComplete();
-            std::cout << "-> Task: " << input+1 << ". " << tasksList[input]->getTitle() << " - status changed" << std::endl;
+            std::cout << "-> Change status task: " << input+1 << ". " << tasksList[input]->getTitle() << std::endl;
         }
         else
         {
@@ -92,18 +90,16 @@ void Tasks::deleteTask()
 {
     showAllTasks();
     int input = -1;
-    std::cout << "Which task remove (number, 0 to exit): ";
-    std::cout << std::endl;
-    std::cin >> input;
+    input = Utils::getIntInputFromUser("Which task remove (number, 0 to exit): ");
     if (input != 0)
     {
         input -= 1;
-        std::cin.ignore();
         if (input >= 0 && input < tasksList.size())
         {
             auto taskToRemove = tasksList.begin() + input;
+            std::string title = tasksList[input]->getTitle();
             tasksList.erase(taskToRemove);
-            std::cout << "-> Task: " << input+1 << " - is remove" << std::endl;
+            std::cout << "-> Remove task: " << input+1 << ". " << title << std::endl;
         }
         else
         {

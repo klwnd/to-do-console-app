@@ -1,4 +1,5 @@
 #include "../include/consoleMenu.h"
+#include "../include/utils.h"
 
 ConsoleMenu::ConsoleMenu(Tasks* instance)
 {
@@ -8,32 +9,30 @@ ConsoleMenu::ConsoleMenu(Tasks* instance)
 void ConsoleMenu::runMenu()
 {
     std::cout << "--------- ToDo App v.0.1 --------" << std::endl;
-    char input = '-';
-    while(input != '0')
+    int input = -1;
+    while(input != 5)
     {
         displayOptions();
-        input = '-';
-        std::cin >> input;
-        std::cin.ignore();
+        input = Utils::getIntInputFromUser();
         switch (input)
         {
-            case '1':
+            case 1:
                 displayFeatureTitle("Show All Tasks");
                 instance->showAllTasks();
                 break;
-            case '2':
+            case 2:
                 displayFeatureTitle("Add New Task");
                 instance->addTask();
                 break;
-            case '3':
+            case 3:
                 displayFeatureTitle("Complete Task");
                 instance->changeCompleteStatus();
                 break;
-            case'4':
+            case 4:
                 displayFeatureTitle("Remove task");
                 instance->deleteTask();
                 break;
-            case '0':
+            case 5:
                 break;
             default:
                 std::cout << "-> function is not available" << std::endl;
@@ -49,7 +48,7 @@ void ConsoleMenu::displayOptions()
     std::cout << "[2] Add new task" << std::endl;
     std::cout << "[3] Update task done status" << std::endl;
     std::cout << "[4] Delete task (not available)" << std::endl;
-    std::cout << "[0] Exit program" << std::endl;
+    std::cout << "[5] Exit program" << std::endl;
     std::cout << "-> Option: ";
 }
 
