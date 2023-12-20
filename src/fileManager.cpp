@@ -8,7 +8,7 @@ FileManager::FileManager(std::string fp)
     this->filePath = fp;
 }
 
-void FileManager::saveToFile(Tasks* object)
+void FileManager::saveToFile(const Tasks* object)
 {
     std::ofstream file;
     file.open(filePath, std::ios::trunc);

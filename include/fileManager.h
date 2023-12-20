@@ -10,7 +10,7 @@ private:
     std::string filePath;
 public:
     FileManager(std::string fp);
-    void saveToFile(Tasks* object);
+    void saveToFile(const Tasks* object);
     Tasks* loadFromFile();
 };
 

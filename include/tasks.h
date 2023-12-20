@@ -15,7 +15,7 @@ public:
     void showTask(Task* object);
     void showAllTasks();
     void changeCompleteStatus();
-    std::vector<Task*> getTasksList();
+    std::vector<Task*> getTasksList() const;
     void setTasksList(std::vector<Task*> tasksList);
     void deleteTask();
 };

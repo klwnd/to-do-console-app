@@ -76,7 +76,7 @@ void Tasks::changeCompleteStatus()
     }
 }
 
-std::vector<Task*> Tasks::getTasksList()
+std::vector<Task*> Tasks::getTasksList() const
 {
     return tasksList;
 }
