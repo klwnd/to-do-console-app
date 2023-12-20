@@ -1,7 +1,7 @@
 #include "../include/utils.h"
 
 // true for log info in console
-bool Utils::isConsoleLogOn = true;
+bool Utils::isConsoleLogOn = false;
 
 void Utils::displayInfoLog(std::string msg, bool isOk)
 {
@@ -18,8 +18,10 @@ void Utils::displayInfoLog(std::string msg, bool isOk)
 int Utils::getIntInputFromUser()
 {
     std::string stringInput;
-    std::cin >> stringInput;
-    std::cin.ignore();
+//    std::cin >> stringInput;
+//    std::cin.ignore();
+    std::getline(std::cin, stringInput);
+    if (stringInput.empty()) return 0; // if press enter - return 0 (exit method)
 
     try
     {

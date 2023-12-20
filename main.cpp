@@ -13,6 +13,6 @@ int main()
     fm.saveToFile(taskObject);
 
     delete taskObject;
-
+    system("pause");
     return 0;
 }

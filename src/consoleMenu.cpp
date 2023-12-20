@@ -8,12 +8,12 @@ ConsoleMenu::ConsoleMenu(Tasks* instance)
 
 void ConsoleMenu::runMenu()
 {
-    std::cout << "--------- ToDo App v.0.1 --------" << std::endl;
     int input = -1;
-    while(input != 5)
+    do
     {
         displayOptions();
         input = Utils::getIntInputFromUser();
+
         switch (input)
         {
             case 1:
@@ -37,24 +37,29 @@ void ConsoleMenu::runMenu()
             default:
                 std::cout << "-> function is not available" << std::endl;
         }
+
         displayFeatureEnd();
-    }
+
+    } while(input != 5);
+
     std::cout << "Bye..." << std::endl;
 }
 
 void ConsoleMenu::displayOptions()
 {
+    std::cout << "--------- ToDo App v.0.1 --------" << std::endl;
     std::cout << "[1] Show all tasks" << std::endl;
     std::cout << "[2] Add new task" << std::endl;
     std::cout << "[3] Update task done status" << std::endl;
     std::cout << "[4] Delete task (not available)" << std::endl;
     std::cout << "[5] Exit program" << std::endl;
+    displayFeatureEnd();
     std::cout << "-> Option: ";
 }
 
 void ConsoleMenu::displayFeatureTitle(std::string title)
 {
-    std::cout << std::endl;
+//    std::cout << std::endl;
     int maxTitleSize = 32;
     int titleLength;
 

@@ -10,8 +10,8 @@ void Tasks::addTask()
     while(true)
     {
         std::string title;
-        std::cout << "-> Add new task (EMPTY to exit): ";
-        std::cout << std::endl;
+        std::cout << "Add new task (EMPTY to exit): ";
+        std::cout << std::endl << "-> ";
         std::getline(std::cin, title);
 
         if (title.empty()) break;
