@@ -1,7 +1,7 @@
 #include "../include/utils.h"
 
 // true for log info in console
-bool Utils::isConsoleLogOn = false;
+bool Utils::isConsoleLogOn = true;
 
 void Utils::displayInfoLog(std::string msg, bool isOk)
 {
